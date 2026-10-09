@@ -3,14 +3,14 @@ public class AquariumFish extends Fish {
     public static boolean needsAerator = true;
     public static String defaultWaterType = "freshwater";
 
-    private int tankSize; \\ объем аквариума, л
-    private String waterType; \\ тип воды
-    private String temperament; \\ характер
+    private int tankSize; // объем аквариума, л
+    private String waterType; // тип воды
+    private String temperament; // характер
 
-    public AquariumFish(string name, int age, String species,
+    public AquariumFish(String name, int age, String species,
                         int depthMin, int depthMax, int weight,
                         int tankSize, String waterType, String temperament) {
-    super(name, age, "аквариум", species, depthMin, depthMax, weight)
+    super(name, age, "аквариум", species, depthMin, depthMax, weight);
     setTankSize(tankSize);
     setWaterType(waterType);
     setTemperament(temperament);
@@ -18,7 +18,7 @@ public class AquariumFish extends Fish {
 
     public int getTankSize() { return tankSize; }
 
-    public void setTankSize(tankSize) {
+    public void setTankSize(int tankSize) {
         if (tankSize <= 0) {
             throw new IllegalArgumentException("Объем сосуда должен быть положительным");
         }
@@ -27,8 +27,8 @@ public class AquariumFish extends Fish {
 
     public String getWaterType() { return waterType; }
 
-    public void setWaterType(waterType) {
-        if (waterType = null || !(waterType.equals("пресная")
+    public void setWaterType(String waterType) {
+        if (waterType == null || !(waterType.equals("пресная")
                             || waterType.equals("солёная")
                             || waterType.equals("загрязнённая"))) {
             throw new IllegalArgumentException("тип воды должен быть: пресная, солёная, загрязнённая");
@@ -38,7 +38,7 @@ public class AquariumFish extends Fish {
 
     public String getTemperament() { return temperament; }
 
-    public void setTemperament(temperament) {
+    public void setTemperament(String temperament) {
         if (temperament == null || !(temperament.equals("мирная")
                                 || temperament.equals("агрессивная"))) {
             throw new IllegalArgumentException("Характер должен быть: мирная или агрессивная");

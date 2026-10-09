@@ -9,7 +9,7 @@ public class Fish extends Animal{
     private int weight;
 
     public Fish(String name, int age, String habitat,
-                String species, int depthMin, int depthMax) {
+                String species, int depthMin, int depthMax, int weight) {
         super(name, age, habitat);
         setSpecies(species);
         setDepthRange(depthMin, depthMax);
@@ -18,8 +18,8 @@ public class Fish extends Animal{
     
     public String getSpecies() { return species; }
 
-    public void setSpecies(species) {
-        if (species if null) {
+    public void setSpecies(String species) {
+        if (species == null) {
             throw new IllegalArgumentException("Вид должен быть непустой строкой");
         }
         this.species = species;
@@ -28,7 +28,7 @@ public class Fish extends Animal{
     public int getDepthMin() { return depthMin; }
     public int getDepthMax() { return depthMax; }
 
-    public void setDepthRange(depthMin, depthMax) {
+    public void setDepthRange(int depthMin, int depthMax) {
         if (depthMin > depthMax) {
             throw new IllegalArgumentException("Минимальная глубина не должна быть ниже максимальной");
         }
@@ -36,8 +36,17 @@ public class Fish extends Animal{
         this.depthMax = depthMax;
     }
 
+    public int getWeight() { return weight; }
+
+    public void setWeight(int weight) {
+        if (weight <= 0) {
+            throw new IllegalArgumentException("Вес должен быть положительным");
+        }
+        this.weight = weight;
+    }
+
     public String swim() {
-        return getName() + " плывет на глубине " + depthMin + '-' + depthMax + 'м.';
+        return getName() + " плывет на глубине " + depthMin + '-' + depthMax + "м.";
     }
 
     @Override public String breathe() {
@@ -51,7 +60,6 @@ public class Fish extends Animal{
     @Override
     public String describe() {
         return super.describe()
-                + "\n  Вид: " + species + ", плавников: " + finCount
-                + ", хладнокровная: " + coldBlooded + ".";
+                + "\n  Вид: " + species + ", хладнокровная: " + coldBlooded + ".";
     }
 }

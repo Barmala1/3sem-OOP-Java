@@ -34,7 +34,7 @@ public class Animal {
     public String getHabitat() {return habitat; }
 
     public void setHabitat(String habitat) {
-        if (habitat is null) {
+        if (habitat == null) {
             throw new IllegalArgumentException("Среда должны быть непустой строкой");
         }
         this.habitat = habitat;
@@ -50,6 +50,6 @@ public class Animal {
 
     public String describe() {
         return name + " представитель царства " + KINGDOM
-         + ", возраст " + age + ", среда обитания " + habitat + '.';
+        + ", возраст " + age + ", среда обитания " + habitat + '.';
     }
 }
